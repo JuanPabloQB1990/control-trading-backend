@@ -30,7 +30,7 @@ mongoose
   .connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/trading')
   .then(() => {
     console.log('MongoDB conectado');
-    app.listen(PORT, () => console.log(`Servidor escuchando en puerto ${PORT}`));
+    app.listen(PORT, '0.0.0.0', () => console.log(`Servidor escuchando en puerto ${PORT}`));
   })
   .catch((error) => {
     console.error('Error conectando MongoDB:', error);
