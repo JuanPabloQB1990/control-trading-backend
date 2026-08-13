@@ -8,7 +8,7 @@ dayjs.extend(timezone);
 
 const getAll = async (_req, res, next) => {
   try {
-    const operaciones = await Operacion.find().populate(['sesion', 'par', 'timeframeLiquidez', 'timeframeObjetivo']);
+    const operaciones = await Operacion.find().populate(['sesion', 'par', 'timeframeLiquidez', 'timeframeObjetivo', 'timeframeImbalanceEntrada']);
     res.json(operaciones);
   } catch (error) {
     next(error);
@@ -17,7 +17,7 @@ const getAll = async (_req, res, next) => {
 
 const getById = async (req, res, next) => {
   try {
-    const operacion = await Operacion.findById(req.params.id).populate(['sesion', 'par', 'timeframeLiquidez', 'timeframeObjetivo']);
+    const operacion = await Operacion.findById(req.params.id).populate(['sesion', 'par', 'timeframeLiquidez', 'timeframeObjetivo', 'timeframeImbalanceEntrada']);
     if (!operacion) {
       return res.status(404).json({ message: 'Operación no encontrada' });
     }
@@ -49,7 +49,8 @@ const create = async (req, res, next) => {
       'sesion',
       'par',
       'timeframeLiquidez',
-      'timeframeObjetivo'
+      'timeframeObjetivo',
+      'timeframeImbalanceEntrada'
     ]);
 
     res.status(201).json(populated);
@@ -88,7 +89,8 @@ const update = async (req, res, next) => {
       'sesion',
       'par',
       'timeframeLiquidez',
-      'timeframeObjetivo'
+      'timeframeObjetivo',
+      'timeframeImbalanceEntrada'
     ]);
 
     res.json(populated);
