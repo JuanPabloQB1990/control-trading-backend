@@ -6,7 +6,7 @@ const operacionSchema = new mongoose.Schema({
   par: { type: mongoose.Schema.Types.ObjectId, ref: 'Par', required: true },
   liquidez: { type: String, enum: ['imbalance', 'minimo', 'maximo'], required: true },
   liquidezEnSesion: { type: Boolean, required: true },
-  liquidaUltimaVela4h: { type: Boolean, required: true },
+  liquidaUltimaVela2h: { type: Boolean, required: true },
   timeframeLiquidez: { type: mongoose.Schema.Types.ObjectId, ref: 'Timeframe', required: true },
   quiebreTendenciaEntrada: { type: Boolean, required: true },
   timeframeImbalanceEntrada: { type: mongoose.Schema.Types.ObjectId, ref: 'Timeframe', required: true },
