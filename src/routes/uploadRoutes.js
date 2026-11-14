@@ -36,7 +36,7 @@ router.post('/', upload.single('image'), async (req, res) => {
           stream.end(req.file.buffer);
         });
 
-        return res.json({ imageUrl: uploadResult.secure_url, fallback: false });
+        return res.json({ imageUrl: uploadResult.secure_url, publicId: uploadResult.public_id, fallback: false });
       } catch (error) {
         console.error('Cloudinary upload failed, using fallback image URL:', error.message);
       }

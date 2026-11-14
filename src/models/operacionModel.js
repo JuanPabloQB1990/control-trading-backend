@@ -27,7 +27,8 @@ const operacionSchema = new mongoose.Schema({
   updatedAtCol: { type: String, default: '' },
   resultadoOperacion: { type: String, enum: ['ganada', 'breakEven', 'perdida'], default: '' },
   operacionTomada: { type: Boolean, default: false },
-  imagenUrl: { type: String, default: '' }
+  imagenUrl: { type: String, default: '' },
+  imagenPublicId: { type: String, default: '' }
 }, { timestamps: true });
 
 function formatToBogotaISO(date) {
